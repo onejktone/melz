@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rose Animation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end; /* Mengatur elemen agar berada di bagian bawah */
+            height: 101vh;
+            background: linear-gradient(to bottom, #87CEEB, #FFFFFF);
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .rose {
+            position: relative;
+            bottom: 0; /* Posisi bunga di bagian bawah halaman */
+            animation: rise 3s ease-in-out forwards;
+        }
+
+        @keyframes rise {
+            from {
+                bottom: -200px; /* Mulai di luar layar */
+            }
+            to {
+                bottom: 0; /* Bunga berada di bagian bawah halaman */
+            }
+        }
+
+        .text {
+            position: absolute;
+            top: -50px; /* Posisi teks di atas bunga */
+            font-size: 36px;
+            font-weight: bold;
+            color: #FF6347; /* Warna teks yang cerah */
+            white-space: nowrap;
+            opacity: 0; /* Mulai dengan teks tersembunyi */
+            animation: showText 1s ease-out forwards; /* Animasi untuk muncul */
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4); /* Bayangan halus */
+        }
+
+        @keyframes showText {
+            0% {
+                opacity: 0;
+                transform: translateY(20px); /* Teks mulai dari bawah */
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0); /* Teks berhenti di posisi normal */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Ganti 'bunga.png' dengan path gambar bunga Anda -->
+        <img src="bunga.png" alt="Rose" class="rose" width="150">
+
+        <!-- Teks muncul dengan bayangan -->
+        <div class="text">Special for You</div>
+    </div>
+</body>
+</html>
